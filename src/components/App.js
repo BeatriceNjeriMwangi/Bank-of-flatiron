@@ -11,8 +11,8 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3000/transactions')
   .then(res => res.json())
-  .then(data => setTransactions())
-  .catch(err => console.error(err)) 
+  .then(data => setTransactions(data))
+  //.catch(err => console.error(err)) 
   }, [])
 
   function handleAdded({transactions}){
