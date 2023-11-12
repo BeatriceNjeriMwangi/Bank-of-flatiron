@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: #61dafb;
+  background-color: aliceblue
+  ;
   border: #282c34, 5%;
 }
 
@@ -38,7 +39,31 @@
     transform: rotate(360deg);
   }
 }
+input[type="text"] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+textarea{
+  width: 20%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 table{
-  border: 1px;
-  width: 500px;
+  border: 1px solid #ccc;
+  width: 800px;
+  border-collapse: collapse;
+  margin: 0 auto;
 }
