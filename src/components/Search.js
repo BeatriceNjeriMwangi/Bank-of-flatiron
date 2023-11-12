@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 
 function Search(){
+    const [search, onSearch] = new Search
     return(
         <>
         </>
