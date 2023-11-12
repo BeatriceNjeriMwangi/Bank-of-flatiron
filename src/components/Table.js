@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
+//import react and usestate
 
 function Table({transactions}){
     // const [transactions, setTransactions]=useState([])
     // const [search, setSearch] = useState('')
     console.log(transactions);
     return (
-        
+        //display table
             <table className='table'>
                 <thead className='thead'>
                     <tr>
@@ -33,6 +34,7 @@ function Table({transactions}){
                     </tr>
                 </thead>
                 <tbody>
+                    //mapping through all transactions for data to be displayed
                     {transactions.map((transaction, index) => {
                         return(
                         <tr key={index}>
@@ -62,4 +64,4 @@ function Table({transactions}){
     )
 }
 
-export default Table;
+export default Table;//exporting table component
