@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
 function Table(){
+    const [transactions, setTransactions]=useState([])
+    const [search, setSearch] = useState('')
     return (
         <div>
             <input 
