@@ -5,10 +5,7 @@ function Table(){
     const [search, setSearch] = useState('')
     return (
         <div>
-            <input 
-            type='text'
-            placeholder='Search transactions'
-            />
+            
             <table className='table'>
                 <th className='th'>
                     <tr>

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 function Search(){
-    const [search, onSearch] = useState(Search)
+    const [search, onSearch] = useState()
     return(
         <div>
             <input 

@@ -19,28 +19,32 @@ function Form({onAddTransaction, transactionCount}){
             name="date"
             placeholder="Date"
             value={newTransactions.date}
-            onChange={handleChange}/>
+            //onChange={}
+            />
 
             <label>Description</label>
             <input type="text"
             placeholder="Description"
             name="Description"
             value={newTransactions.description}
-            onChange={handleChange}/>
+            //onChange={}
+            />
 
             <label>Category</label>
             <input type="text"
             placeholder="Category"
             name="Category"
             value={newTransactions.category}
-            onChange={handleChange}/>
+            //onChange={}
+            />
 
             <label>Amount</label>
             <input type="text"
             placeholder="Amount"
             name="Amount"
             value={newTransactions.amount}
-            onChange={handleChange}/>
+            //onChange={}
+            />
 
             <button onClick={() => onAddTransaction(newTransactions)}>Add Transaction</button>
 
