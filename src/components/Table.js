@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 
-function Table(){
-    const [transactions, setTransactions]=useState([])
-    const [search, setSearch] = useState('')
+function Table({transactions}){
+    // const [transactions, setTransactions]=useState([])
+    // const [search, setSearch] = useState('')
+    console.log(transactions);
     return (
-        <div>
-            
+        
             <table className='table'>
-                <th className='th'>
+                <thead className='thead'>
                     <tr>
+                    
 
                         <th>
                             Date
@@ -30,9 +31,34 @@ function Table(){
                             Action
                         </th>
                     </tr>
-                </th>
+                </thead>
+                <tbody>
+                    {transactions.map((transaction, index) => {
+                        return(
+                        <tr key={index}>
+                            <td>
+                                {transaction.date}
+                            </td>
+                            <td>
+                                {transaction.description}
+                            </td>
+                            <td>
+                                {transaction.category}
+                            </td>
+                            <td>
+                                {transaction.amount}
+                            </td>
+                            <td>
+                                <button className='btn btn-danger'>Delete</button>
+                            </td>
+                        </tr>
+                        )
+                    })}
+
+
+                </tbody>
             </table>
-        </div>
+        
     )
 }
 

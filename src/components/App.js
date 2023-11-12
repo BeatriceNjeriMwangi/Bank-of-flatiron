@@ -11,7 +11,8 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3000/transactions')
   .then(res => res.json())
-  .then(transactions => setTransactions(transactions))
+  .then(data => setTransactions())
+  .catch(err => console.error(err)) 
   }, [])
 
   function handleAdded({transactions}){
@@ -25,7 +26,7 @@ function App() {
       <div><h1>Bank of Flatiron</h1></div>
       <Search />
       <Form />
-      <Table />
+      <Table transactions={transactions}/>
     </div>
   );
 }
