@@ -1,17 +1,19 @@
 import React, {useState} from "react";
+//importing react
 
 function Search(){
-    const [search, onSearch] = useState()
-    return(
+    //initializing state
+    const [search, setSearch] = useState()
+    return(//render component
         <div>
             <input 
             type='text'
             placeholder='Search transactions'
             value={search}
-            onSearch={(e)=>onSearch(e.target.value)}
+            onSearch={(e)=>setSearch(e.target.value)}
             />
         </div>
     )
 }
 
-export default Search;
+export default Search;//exports search component
