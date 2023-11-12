@@ -34,7 +34,7 @@ function Table({transactions}){
                     </tr>
                 </thead>
                 <tbody>
-                    //mapping through all transactions for data to be displayed
+
                     {transactions.map((transaction, index) => {
                         return(
                         <tr key={index}>

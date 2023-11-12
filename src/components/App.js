@@ -28,8 +28,8 @@ function App() {
     <div className="App">
       <div><h1>Bank of Flatiron</h1></div>
      
-      <Search />
-      <Form />
+      <Search search={search} setSearch={setSearch}/>
+      <Form onAddTransaction={handleAdded}/>
       <Table transactions={transactions}/>
     </div>
   );

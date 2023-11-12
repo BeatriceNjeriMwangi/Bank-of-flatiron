@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+//importing react
 
 function Form({onAddTransaction, transactionCount}){
     const [newTransactions, setNewTrasaction] = useState({
@@ -8,10 +9,19 @@ function Form({onAddTransaction, transactionCount}){
         amount: "",
         
     })
-    function handleChange(e){
+    function handleChange(e){//handle change on the form
         setNewTrasaction({...newTransactions, [e.target.name]: e.target.value})
     }
-    
+    //adding a new trasaction
+    function handleClick(){
+        onAddTransaction(newTransactions)
+        setNewTrasaction({
+            date: "",
+            description: "",
+            category: "",
+            amount: "",
+        })
+    }
     return(
         <div>
             <label>Date</label>
