@@ -1,19 +1,25 @@
-import React, {useState} from "react";
-//importing react
+// Search.js
+import React, { useState } from 'react';
 
-function Search(){
-    //initializing state
-    const [search, setSearch] = useState()
-    return(//render component
+function Search({ onSearch }) {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+        onSearch(value); // Call the callback function with the search term
+    };
+
+    return (
         <div>
-            <input 
-            type='text'
-            placeholder='Search transactions'
-            value={search}
-            onSearch={(e)=>setSearch(e.target.value)}
+            <input
+                type="text"
+                placeholder="Search by description"
+                value={searchTerm}
+                onChange={handleChange}
             />
         </div>
-    )
+    );
 }
 
-export default Search;//exports search component
+export default Search;

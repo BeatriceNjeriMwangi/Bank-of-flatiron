@@ -1,13 +1,13 @@
 import './App.css';
 import React, {useEffect, useState} from'react';
-import Search from './Search';
+
 import Form from './Form';
 import Table from './Table';
 //importing components
 
 function App() {
   //initializing state variables
-  const [search, setSearch] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -28,7 +28,6 @@ function App() {
     <div className="App">
       <div><h1>Bank of Flatiron</h1></div>
      
-      <Search search={search} setSearch={setSearch}/>
       <Form onAddTransaction={handleAdded}/>
       <Table transactions={transactions}/>
     </div>
