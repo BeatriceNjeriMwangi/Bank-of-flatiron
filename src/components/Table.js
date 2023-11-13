@@ -1,36 +1,34 @@
-// Table.js
+//import react and search
 import React, { useState, useEffect } from 'react';
 import Search from './Search';
 
-function Table({ transactions }) {
+function Table({ transactions }) {//function for table
     const [filteredTransactions, setFilteredTransactions] = useState(transactions);
     
 
-    // Create a copy of the transactions array
+   
     useEffect(() => {
-        // Set filteredTransactions to the original list of transactions when the component mounts
+        
         setFilteredTransactions(transactions);
       }, [transactions]);
-
+//for searching
     const handleSearch = (searchTerm) => {
         let filtered;
         if (searchTerm.length >= 3) {
-          // Only search for a specific description if filterText is at least 3 characters long
+          
           filtered = transactions.filter((transaction) =>
             transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
           );
         } else {
-          // If filterText is less than 3 characters, show all transactions
           filtered = transactions;
         }
         setFilteredTransactions(filtered);
       };
 
-    const handleDelete = (index) => {
-        // Add logic to handle delete for the specified index
+    const handleDelete = (index) => {//it is not clickable for now
         console.log('Delete button clicked for index:', index);
     };
-
+ //displays table content:rows and data
     return (
         <div>
             <Search onSearch={handleSearch} />
@@ -68,3 +66,4 @@ function Table({ transactions }) {
 }
 
 export default Table;
+//export table component

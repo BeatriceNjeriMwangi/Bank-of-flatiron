@@ -1,15 +1,16 @@
-// Search.js
+//import react and usestate
 import React, { useState } from 'react';
 
-function Search({ onSearch }) {
+function Search({ onSearch }) {//function for searchbar
     const [searchTerm, setSearchTerm] = useState('');
 
-    const handleChange = (e) => {
+    const handleChange = (e) => {//handles change when search happens
         const value = e.target.value;
         setSearchTerm(value);
-        onSearch(value); // Call the callback function with the search term
+        //callback function
+        onSearch(value); 
     };
-
+//search elements
     return (
         <div>
             <input
@@ -23,3 +24,4 @@ function Search({ onSearch }) {
 }
 
 export default Search;
+//export search component

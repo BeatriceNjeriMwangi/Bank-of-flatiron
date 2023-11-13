@@ -1,64 +1,78 @@
-import React, {useState} from "react";
-//importing react
+import React, { useState } from "react";
 
-function Form({onAddTransaction, transactionCount}){
-    const [newTransactions, setNewTrasaction] = useState({
+function Form({ onAddTransaction }) {
+  const [newTransaction, setNewTransaction] = useState({
+    date: "",
+    description: "",
+    category: "",
+    amount: "",
+  });
+
+  function handleChange(e) {
+    setNewTransaction({ ...newTransaction, [e.target.name]: e.target.value });
+  }
+
+  function handleClick() {
+    // Validate the input fields before adding a transaction
+    if (
+      newTransaction.date &&
+      newTransaction.description &&
+      newTransaction.category &&
+      newTransaction.amount
+    ) {
+      onAddTransaction(newTransaction);
+      setNewTransaction({
         date: "",
         description: "",
         category: "",
         amount: "",
-        
-    })
-    function handleChange(e){//handle change on the form
-        setNewTrasaction({...newTransactions, [e.target.name]: e.target.value})
+      });
+    } else {
+      alert("Please fill in all fields");
     }
-    //adding a new trasaction
-    function handleClick(){
-        onAddTransaction(newTransactions)
-        setNewTrasaction({
-            date: "",
-            description: "",
-            category: "",
-            amount: "",
-        })
-    }
-    return(
-        <div>
-            <label>Date</label>
-            <input type="date"
-            name="date"
-            placeholder="Date"
-            value={newTransactions.date}
-            //onChange={}
-            />
+  }
 
-            <label>Description</label>
-            <input type="text"
-            placeholder="Description"
-            name="Description"
-            value={newTransactions.description}
-            //onChange={}
-            />
+  return (
+    <div>
+      <label>Date</label>
+      <input
+        type="date"
+        name="date"
+        placeholder="Date"
+        value={newTransaction.date}
+        onChange={handleChange}
+      />
 
-            <label>Category</label>
-            <input type="text"
-            placeholder="Category"
-            name="Category"
-            value={newTransactions.category}
-            //onChange={}
-            />
+      <label>Description</label>
+      <input
+        type="text"
+        placeholder="Description"
+        name="description"
+        value={newTransaction.description}
+        onChange={handleChange}
+      />
 
-            <label>Amount</label>
-            <input type="text"
-            placeholder="Amount"
-            name="Amount"
-            value={newTransactions.amount}
-            //onChange={}
-            />
+      <label>Category</label>
+      <input
+        type="text"
+        placeholder="Category"
+        name="category"
+        value={newTransaction.category}
+        onChange={handleChange}
+      />
 
-            <button onClick={() => onAddTransaction(newTransactions)}>Add Transaction</button>
+      <label>Amount</label>
+      <input
+        type="text"
+        placeholder="Amount"
+        name="amount"
+        value={newTransaction.amount}
+        onChange={handleChange}
+      />
 
-        </div>
-    )
-    }
+      <button onClick={handleClick}>Add Transaction</button>
+    </div>
+  );
+}
+
 export default Form;
