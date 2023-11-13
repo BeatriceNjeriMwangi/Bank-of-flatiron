@@ -6,7 +6,7 @@ import Table from './Table';
 //importing components
 
 function App() {
-  // initializing state variables
+  // state variables
   const [searchTerm, setSearchTerm] = useState('');
   const [transactions, setTransactions] = useState([]);
 
@@ -18,8 +18,8 @@ function App() {
       //.catch(err => console.error(err))
   }, [])
 
-  function handleAdded(newTransaction) {
-    // Make a POST request to add the new transaction to the server
+  function handleAdded(newTransaction) {//Post add transaction
+    
     fetch('http://localhost:3000/transactions', {
       method: 'POST',
       headers: {
@@ -34,14 +34,13 @@ function App() {
         return response.json();
       })
       .then(() => {
-        // Update the local state with the new transaction
         setTransactions([...transactions, newTransaction]);
       })
       .catch(error => {
         console.error('Error adding transaction:', error);
       });
   }
-
+//dispay elements of app
   return (
     <div className="App">
       <div>
@@ -54,3 +53,4 @@ function App() {
   );
 }
 export default App;
+//export App
