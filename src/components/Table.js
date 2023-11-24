@@ -1,37 +1,56 @@
 //import react and search
 import React, { useState, useEffect } from 'react';
-import Search from './Search';
+
 
 function Table({ transactions }) {//function for table
-    const [filteredTransactions, setFilteredTransactions] = useState(transactions);
+    const [searchTerm, setSearchTerm] = useState('')
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+      };
+    
+      const filteredTransactions =
+        searchTerm.length >= 3
+          ? transactions.filter((item) =>
+              item.description.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+          : transactions;
     
 
    
     useEffect(() => {
         
-        setFilteredTransactions(transactions);
+        setSearchTerm('');
       }, [transactions]);
 //for searching
-    const handleSearch = (searchTerm) => {
-        let filtered;
-        if (searchTerm.length >= 3) {
+    // const handleSearch = (searchTerm) => {
+    //     let filtered;
+    //     if (searchTerm.length >= 3) {
           
-          filtered = transactions.filter((transaction) =>
-            transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
-          );
-        } else {
-          filtered = transactions;
-        }
-        setFilteredTransactions(filtered);
-      };
+    //       filtered = transactions.filter((transaction) =>
+    //         transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+    //       );
+    //     } else {
+    //       filtered = transactions;
+    //     }
+    //     setFilteredTransactions(filtered);
+    //   };
 
-    const handleDelete = (index) => {//it is not clickable for now
+    const handleDelete = (index) => {
+        // Implement the logic to delete the transaction with the given index
+        // Update the state or communicate with the parent component to update the data
         console.log('Delete button clicked for index:', index);
-    };
+      };
  //displays table content:rows and data
     return (
         <div>
-            <Search onSearch={handleSearch} />
+            <div>
+            <input
+  type="text"
+  placeholder="Search items..."
+  value={searchTerm}
+  onChange={handleSearchChange}
+/>
+      </div>
             <table className='table'>
                 <thead className='thead'>
                     <tr>

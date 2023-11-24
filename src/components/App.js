@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     // fetching data from db.json using useEffect()
-    fetch('http://localhost:3000/transactions')
+    fetch('https://bank-sui8.onrender.com/transactions')
       .then(res => res.json())
       .then(data => setTransactions(data))
       //.catch(err => console.error(err))
@@ -20,7 +20,7 @@ function App() {
 
   function handleAdded(newTransaction) {//Post add transaction
     
-    fetch('http://localhost:3000/transactions', {
+    fetch('https://bank-sui8.onrender.com/transactions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
